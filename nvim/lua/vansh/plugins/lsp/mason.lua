@@ -30,10 +30,10 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
-				"prismals",
 				"pylsp",
 				"pyright",
 				"clangd",
+				"jdtls",
 			},
 		})
 
@@ -45,6 +45,8 @@ return {
 				"black", -- python formatter
 				"eslint_d",
 				"flake8",
+				"java-test",
+				"java-debug-adapter",
 			},
 		})
 	end,

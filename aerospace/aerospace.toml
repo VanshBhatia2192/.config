@@ -169,5 +169,5 @@ if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'com.google.chrome'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace C'
