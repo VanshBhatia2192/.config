@@ -30,8 +30,7 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
-				"pylsp",
-				"pyright",
+				"ruff_lsp",
 				"clangd",
 				"jdtls",
 			},
@@ -43,10 +42,7 @@ return {
 				"stylua", -- lua formatter
 				"isort", -- python formatter
 				"black", -- python formatter
-				"eslint_d",
 				"flake8",
-				"java-test",
-				"java-debug-adapter",
 			},
 		})
 	end,

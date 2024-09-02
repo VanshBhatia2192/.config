@@ -9,6 +9,7 @@ return {
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
+		lspconfig.rust_analyzer.setup({})
 
 		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
@@ -85,6 +86,13 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["dartls"] = function()
+				lspconfig["dartls"].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+				})
+			end,
+
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
