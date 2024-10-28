@@ -12,11 +12,14 @@ padding.y = 8
 decorations = "Buttonless"
 
 opacity = 0.76
-blur = true
+blur = true 
 
 option_as_alt = "Both"
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
-size = 17
+size = 17.5
+
+[cursor]
+style = "underline"
 
