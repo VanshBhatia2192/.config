@@ -108,11 +108,11 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-a = 'workspace A' 
 alt-b = 'workspace B'
 alt-c = 'workspace C'
 alt-t = 'workspace T'
-alt-s = 'workspace S'
+alt-v = 'workspace V'
+alt-n = 'workspace N'
 
 # movind nodes accross workspaces:
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -124,18 +124,19 @@ alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-alt-shift-a = ['move-node-to-workspace A', 'workspace A']
 alt-shift-b = ['move-node-to-workspace B', 'workspace B']
 alt-shift-c = ['move-node-to-workspace C', 'workspace C']
 alt-shift-t = ['move-node-to-workspace T', 'workspace T']
-alt-shift-s = ['move-node-to-workspace S', 'workspace S']
+alt-shift-v = ['move-node-to-workspace V', 'workspace V']
+alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 
 alt-shift-m = 'fullscreen' # occupy complete workspace
 alt-m = 'macos-native-fullscreen' # full screen command 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'focus-back-and-forth'
 # See:https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -145,7 +146,6 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-# s = ['layout sticky tiling', 'mode main'] # sticky 
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 e = ['balance-sizes', 'mode main']
@@ -155,25 +155,45 @@ ctrl-shift-j= ['join-with down', 'mode main']
 ctrl-shift-k= ['join-with up', 'mode main']
 ctrl-shift-l= ['join-with right', 'mode main']
 
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'move-node-to-workspace N'
+
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace V'
 
 [[on-window-detected]]
 if.app-id ='net.whatsapp.WhatsApp'
 run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
-if.app-id ='company.thebrowser.Browser'
-run = 'move-node-to-workspace B'
+if.app-id ='com.apple.Dictionary'
+run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id ='com.apple.iCal'
 run = ['layout floating']
 
 [[on-window-detected]]
+if.app-id ='com.netacad.PacketTracer8.2.2'
+run = ['layout floating']
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = ['move-node-to-workspace B']
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ['move-node-to-workspace B']
 
 [[on-window-detected]]
 if.app-id ='com.apple.PhotoBooth'
