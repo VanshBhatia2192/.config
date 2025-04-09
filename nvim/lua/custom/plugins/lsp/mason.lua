@@ -29,9 +29,12 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
-				"clangd",
+				-- "clangd",
 				"pyright",
-				"eslint",
+				"jdtls",
+				"emmet_ls",
+				"tailwindcss",
+				"prismals",
 			},
 		})
 
@@ -40,6 +43,7 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"flake8",
+				"eslint_d",
 			},
 		})
 	end,
