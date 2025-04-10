@@ -1,5 +1,3 @@
-These are configuration files of some applications i use
-for daily use.
+These are configuration files of some applications I use on a daily basis
 
-these configurations will work on machines runninb mac/linux 
-operating systems.
+These configurations will work on machines running mac/linux operating systems.
