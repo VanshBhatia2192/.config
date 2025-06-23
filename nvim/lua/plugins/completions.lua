@@ -35,10 +35,45 @@ return {
 				sources = cmp.config.sources({
 					-- { name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "copilot" },
 				}, {
 					{ name = "buffer" },
 				}),
 			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		build = ":Copilot auth",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = true, auto_trigger = true },
+				panel = { enabled = true },
+				filetypes = setmetatable({}, {
+					__index = function(_, ft)
+						-- Disable Copilot in specific directories
+						local disabled_dirs = {
+							["/path/to/disable1"] = true,
+							["/path/to/disable2"] = true,
+						}
+						local cwd = vim.loop.cwd()
+						for dir in pairs(disabled_dirs) do
+							if cwd:find(dir, 1, true) == 1 then
+								return false
+							end
+						end
+						return true
+					end,
+				}),
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
 		end,
 	},
 }
