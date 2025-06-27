@@ -1,15 +1,5 @@
 return {
 	{ "jiangmiao/auto-pairs" },
-	-- {
-	-- 	"akinsho/bufferline.nvim",
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	version = "*",
-	-- 	opts = {
-	-- 		options = {
-	-- 			-- mode = "tabs",
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -18,5 +8,16 @@ return {
 			vim.o.timeoutlen = 500
 		end,
 		opts = {},
+	},
+	{
+		"tpope/vim-fugitive",
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+			vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
+		end,
 	},
 }
