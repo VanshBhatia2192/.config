@@ -53,10 +53,7 @@ return {
 				filetypes = setmetatable({}, {
 					__index = function(_, ft)
 						-- Disable Copilot in specific directories
-						local disabled_dirs = {
-							["/path/to/disable1"] = true,
-							["/path/to/disable2"] = true,
-						}
+						local disabled_dirs = {}
 						local cwd = vim.loop.cwd()
 						for dir in pairs(disabled_dirs) do
 							if cwd:find(dir, 1, true) == 1 then

@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 
 local opt = vim.opt
 
+opt.fillchars:append({ eob = " " })
+
 opt.guicursor = ""
 
 opt.number = true
