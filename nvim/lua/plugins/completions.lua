@@ -35,6 +35,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "luasnip" },
 					{ name = "copilot" },
+					-- { name = "nvim_lsp" },
 				}, {
 					{ name = "buffer" },
 				}),
@@ -52,7 +53,9 @@ return {
 				filetypes = setmetatable({}, {
 					__index = function(_, ft)
 						-- Disable Copilot in specific directories
-						local disabled_dirs = {}
+						local disabled_dirs = {
+							"/Users/vanshbhatia/projects/webd/css/nike",
+						}
 						local cwd = vim.loop.cwd()
 						for dir in pairs(disabled_dirs) do
 							if cwd:find(dir, 1, true) == 1 then
