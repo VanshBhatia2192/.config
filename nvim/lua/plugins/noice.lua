@@ -15,10 +15,17 @@ return {
 						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 					},
 					hover = {
-						enabled = false,
+						enabled = true,
+						opts = {
+							border = "rounded",
+						},
+						silent = true,
 					},
 					signature = {
-						enabled = false,
+						enabled = true,
+						opts = {
+							border = "rounded"
+						},
 						auto_open = {
 							enabled = false,
 						},
