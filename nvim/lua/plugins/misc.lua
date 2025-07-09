@@ -31,4 +31,20 @@ return {
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lspsaga").setup({
+				lightbulb = {
+					enable = false,
+				},
+			})
+			vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true, desc = "Peek definition in floating window" })
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", 
+			"nvim-tree/nvim-web-devicons"     
+		}
+	},
 }
