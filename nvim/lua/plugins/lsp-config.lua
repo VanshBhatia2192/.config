@@ -33,7 +33,10 @@ return {
 
 			local on_attach = function(client, bufnr)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+				vim.keymap.set("n", "od", function()
+					vim.lsp.buf.definition()
+					vim.cmd("tabnew")
+				end, { buffer = bufnr })
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 			end
 
