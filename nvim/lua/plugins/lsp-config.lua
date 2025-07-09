@@ -34,9 +34,17 @@ return {
 			local on_attach = function(client, bufnr)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
 				vim.keymap.set("n", "od", function()
-					vim.lsp.buf.definition()
-					vim.cmd("tabnew")
-				end, { buffer = bufnr })
+					local params = vim.lsp.util.make_position_params()
+					vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result)
+						if not result or vim.tbl_isempty(result) then
+							vim.notify("No definition found", vim.log.levels.INFO)
+							return
+						end
+						local def = (vim.islist(result) and result[1]) or result
+						vim.cmd("tabnew")
+						vim.lsp.util.jump_to_location(def, "utf-8")
+					end)
+				end, { noremap = true, silent = true, desc = "Open definition in new tab" })
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 			end
 
