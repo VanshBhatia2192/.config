@@ -20,6 +20,7 @@ return {
 					"pyright",
 					"eslint",
 					"tailwindcss",
+					"cssls",
 				},
 			})
 		end,
@@ -51,6 +52,30 @@ return {
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+			})
+			lspconfig.cssls.setup({
+				-- capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					css = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+					scss = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+					less = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+				},
 			})
 		end,
 	},
