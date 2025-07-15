@@ -40,11 +40,16 @@ return {
 					enable = false,
 				},
 			})
-			vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true, desc = "Peek definition in floating window" })
+			vim.keymap.set(
+				"n",
+				"gd",
+				"<cmd>Lspsaga peek_definition<CR>",
+				{ noremap = true, silent = true, desc = "Peek definition in floating window" }
+			)
 		end,
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter", 
-			"nvim-tree/nvim-web-devicons"     
-		}
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 	},
 }
