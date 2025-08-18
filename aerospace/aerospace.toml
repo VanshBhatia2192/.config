@@ -1,3 +1,4 @@
+exec-on-workspace-change = ['/opt/homebrew/bin/sketchybar', '--trigger', 'aerospace_workspace_change']
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
 
@@ -46,10 +47,10 @@ on-focus-changed = ['move-mouse window-lazy-center']
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
-outer.left =       5
+outer.left =       10
 outer.bottom =     5
-outer.top =        5
-outer.right =      5
+outer.top =        55
+outer.right =      10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -70,9 +71,6 @@ outer.right =      5
 # All possible modifiers: cmd, alt, ctrl, shift
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 
 # disabling irritating hide shortcuts:
 cmd-h = []
@@ -165,6 +163,10 @@ run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id ='com.netacad.PacketTracer8.2.2'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id ='mobi.mobilejump.freevpn'
 run = ['layout floating']
 
 [[on-window-detected]]
