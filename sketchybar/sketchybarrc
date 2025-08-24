@@ -78,7 +78,7 @@ do
   space=(
     associated_display=1
     icon="$workspace_id"
-    icon.padding_left=10
+    icon.padding_left=15
     icon.padding_right=15
     padding_left=2
     padding_right=2
@@ -107,8 +107,8 @@ spaces=(
   background.drawing=on
 )
 
-sketchybar --add bracket spaces '/space\..*/' \
-           --set spaces "${spaces[@]}"
+# sketchybar --add bracket spaces '/space\..*/' \
+#            --set spaces "${spaces[@]}"
 
 echo "Spaces added, continuing with other items..."
 
@@ -116,8 +116,31 @@ source "$ITEM_DIR/front_app.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
+sketchybar --add item wifi right \
+           --set wifi update_freq=5 \
+                      icon.font="JetBrainsMono Nerd Font:Bold:16.0" \
+                      icon.padding_left=8 \
+                      icon.padding_right=4 \
+                      label.font="JetBrainsMono Nerd Font:Medium:14.0" \
+                      label.padding_left=4 \
+                      label.padding_right=8 \
+                      icon.y_offset=0 \
+                      label.y_offset=-2 \
+                      background.corner_radius=6 \
+                      background.height=24 \
+                      background.border_width=1 \
+                      background.border_color=0xff313244 \
+                      script="$PLUGIN_DIR/wifi.sh" \
+                      click_script="$PLUGIN_DIR/wifi.sh click"
+
+# Subscribe to WiFi events for real-time updates
+sketchybar --add event wifi_change \
+           --subscribe wifi wifi_change
+sketchybar --add item battery right \
+           --set battery update_freq=10 \
+                        script="$PLUGIN_DIR/battery.sh" \
+                        label.drawing=on
 source "$ITEM_DIR/cpu.sh"
 
 # Setup ultra-fast AeroSpace monitoring
