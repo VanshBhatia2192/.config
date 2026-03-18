@@ -46,6 +46,7 @@ return {
 					end)
 				end, { noremap = true, silent = true, desc = "Open definition in new tab" })
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
+				vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature Help" })
 			end
 
 			lspconfig.lua_ls.setup({

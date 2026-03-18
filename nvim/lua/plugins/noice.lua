@@ -18,16 +18,26 @@ return {
 						enabled = true,
 						opts = {
 							border = "rounded",
+							position = {
+								row = 1,
+								col = 0,
+							},
+							relative = "cursor",
 						},
 						silent = true,
 					},
 					signature = {
 						enabled = true,
 						opts = {
-							border = "rounded"
+							border = "rounded",
+							position = {
+								row = 1,
+								col = 0,
+							},
+							relative = "cursor",
 						},
 						auto_open = {
-							enabled = false,
+							enabled = true,
 						},
 					},
 				},
